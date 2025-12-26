@@ -1,0 +1,29 @@
+[project]
+name = "urh"
+version = "0.1.0"
+authors = [
+    { name = "Oleksii Burdash", email = "working.unit.0@gmail.com" }
+]
+requires-python = ">=3.7"
+dependencies = [
+    # Runtime dependencies are pinned in `data/requirements.txt` for CI; keep minimal here.
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-xvfb",
+    "pytest-cov",
+    "pytest-faulthandler",
+    "twine",
+    "pyinstaller",
+    "pyaudio",
+    "pillow",
+    "six",
+    "appdirs",
+    "packaging",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"

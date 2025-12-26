@@ -23,6 +23,21 @@ In order to get started
 
 If you like URH, please :star: this repository and [join our Slack channel](https://join.slack.com/t/stralsundsecurity/shared_invite/enQtMjEwOTIxNzMzODc3LTk3NmE4MGVjYjEyYTMzYTdmN2RlNzUzYzg0NTNjNTQ2ODBkMzI3MDZlOWY3MjE4YjBkNTM4ZjJlNTJlZmJhNDg). We appreciate your support!
 
+### Copilot / AI agent instructions
+If you're an AI assistant or contributor automating changes, see `.github/copilot-instructions.md` for a short, actionable guide. Key pointers:
+
+- Big picture: GUI controllers (`src/urh/controller`), signal processing (`src/urh/signalprocessing`), AW/RE rule engine (`src/urh/awre`), native backends (`src/urh/dev/native`), and C/Cython extensions (`src/urh/cythonext`).
+- Quick commands:
+  - Run from source: `python src/urh/main.py` (auto-builds C extensions if missing).
+  - Build C extensions: `python src/urh/cythonext/build.py`.
+  - Regenerate UI: `python -c "from data.generate_ui import gen; gen(force=True)"`.
+  - Run tests (headless GUI): `touch tests/show_gui && xvfb-run pytest -q tests` (CI uses `touch tests/show_gui` for visible-mode tests).
+  - uv/Makefile: `make uv-sync` will run `uv sync` to populate the environment and `make test` runs the test suite via `uv run pytest`.
+- Conventions:
+  - Edit `.ui` files in `data/ui/` and commit regenerated `src/urh/ui/ui_*.py`.
+  - Use `tests/utils_testing.write_settings()` and `tests/QtTestCase.py` helpers for GUI tests.
+- Troubleshooting: Run failing GUI tests under Xvfb; re-run Cython build and verify `import urh.cythonext.signal_functions` works.
+
 ### Citing URH
 We encourage researchers working with URH to cite [this](https://www.usenix.org/conference/woot18/presentation/pohl) WOOT'18 paper or directly use the following BibTeX entry.
  
