@@ -1,4 +1,4 @@
-numpy
-pyqt5
-psutil
-cython!=0.29.18
+numpy>=1.26
+pyqt5>=5.15
+psutil>=5.9
+cython!=0.29.18,>=3.0
