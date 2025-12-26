@@ -22,6 +22,8 @@ dev = [
     "six",
     "appdirs",
     "packaging",
+    "ruff>=0.18.0",
+    "pre-commit",
 ]
 
 [build-system]
